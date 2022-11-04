@@ -11,9 +11,7 @@
 
     <title>Laravel9 and AJAX</title>
 </head>
-<body>
-
-<div class="container">
+<body class="container">
     <div class="row">
         <div class="col-md-12" style="margin-top: 20px">
             <form class="row g-3" action="{{ route('categorySubmit') }}" method="post" >
@@ -76,14 +74,16 @@
 
         <hr>
 
-        <div class="row">
-            <div class="col" id="data">
-                <p>All-Data</p>
+        <div class="row"  id="change">
+
+            <div class="col">
+                <button >All-Data</button>
             </div>
 
             @foreach($data as $datas)
             <div class="col">
-                {{ $datas->category }}
+                <button id="change">{{ $datas->category }}</button>
+
             </div>
             @endforeach
         </div>
@@ -95,9 +95,10 @@
                     <div class="col-5"  >
                         <div class="input-group mb-3">
                             <div class="input-group-text">
+                                    <input type="checkbox" id="checkbox" class="checkbox" />
+                            </div>
+                            {{ $tasks->todo_text }}
                         </div>
-                        {{ $tasks->todo_text }}
-                    </div>
                 @endforeach
             </div>
         </div>
@@ -114,6 +115,20 @@
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+    $('.checkbox').change(function() {
+
+        if (this.checked) {
+            $(this).parent().parent().css("text-decoration", "line-through");
+        } else {
+            $(this).parent().parent().css("text-decoration", "none");
+        }
+    });
+
+
+
+</script>
 </body>
 </html>
