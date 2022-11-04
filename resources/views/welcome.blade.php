@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
+
+    <style>
+        /* Style the buttons */
+        .btn {
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* Style the active class, and buttons on mouse-over */
+        .active, .btn:hover {
+            background-color: #666;
+            color: white;
+        }
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,10 +92,11 @@
 
         <hr>
 
-        <div class="row"  id="change">
+        <div class="row" >
 
             <div class="col">
-                <button >All-Data</button>
+{{--                <p> category name:</p>--}}
+                <p >All-Data</p>
             </div>
 
             @foreach($data as $datas)
@@ -90,7 +109,6 @@
 
         <div class="row">
             <div class="col-md-12" style="margin-top: 20px;">
-
                 @foreach($task as $tasks)
                     <div class="col-5"  >
                         <div class="input-group mb-3">
@@ -127,8 +145,7 @@
         }
     });
 
-
-
 </script>
+
 </body>
 </html>
