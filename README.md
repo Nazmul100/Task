@@ -1,2 +1,2 @@
 # Task
-It is a testing purpose project
+Laravel 9 and Ajax Project
