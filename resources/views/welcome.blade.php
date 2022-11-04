@@ -17,9 +17,10 @@
         <div class="col-md-12" style="margin-top: 20px">
             <form class="row g-3" action="{{ route('categorySubmit') }}" method="post" >
                 @csrf
+                <h2> CATEGORIES </h2>
+                <label for="category" class="">Add Category</label>
                 <div class="col-5">
-                    <label for="category" class="visually-hidden">Category</label>
-                    <input type="text" name="category" class="form-control" id="Category" placeholder="Enter Category Name">
+                    <input type="text" name="category" class="form-control" id="Category" placeholder="Enter Category Name" required>
                 </div>
                 <div class="col-5">
                     <button type="submit" class="btn btn-secondary mb-3">ADD Category</button>
@@ -37,6 +38,42 @@
                 </div>
                @endforeach
         </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12" style="margin-top: 20px">
+            <form class="row g-3" action="{{ route('categorySubmit') }}" method="post" >
+                @csrf
+                <h2> ADD TO DO </h2>
+                <label for="category" class="">Title</label>
+                <div class="col-6">
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title Name" required>
+                </div>
+                <label for="category" class="">Choice Category</label>
+
+                </select>
+
+                <br><br>
+                <!-- Department Employees Dropdown -->
+                <div class="col-5">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Please select a category</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+
+                <div class="col-5">
+                    <button type="submit" class="btn btn-secondary mb-3">ADD TO DO</button>
+                </div>
+            </form>
+        </div>
+
+        <hr>
+
     </div>
 
 
