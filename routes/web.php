@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CategoryController::class, 'index']);
+Route::get('/', [CategoryController::class, 'showcategory'])->name('showcategory');
+Route::post('/category_submit', [CategoryController::class, 'categorySubmit'])->name('categorySubmit');
