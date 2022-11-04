@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <title>Laravel9 and AJAX</title>
 </head>
@@ -32,8 +33,10 @@
 
     <div class="row">
         <div class="col-md-12" style="margin-top: 20px">
+
                @foreach($data as $datas)
                 <div class="col-5">
+                    <span class="">x</span>
                     {{ $datas->category }}
                 </div>
                @endforeach
@@ -44,7 +47,7 @@
 
     <div class="row">
         <div class="col-md-12" style="margin-top: 20px">
-            <form class="row g-3" action="{{ route('categorySubmit') }}" method="post" >
+            <form class="row g-3" action="{{ route('TodoSubmit') }}" method="post" >
                 @csrf
                 <h2> ADD TO DO </h2>
                 <label for="category" class="">Title</label>
@@ -53,16 +56,15 @@
                 </div>
                 <label for="category" class="">Choice Category</label>
 
-                </select>
 
                 <br><br>
                 <!-- Department Employees Dropdown -->
                 <div class="col-5">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Please select a category</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select name="selected" class="form-select" aria-label="Default select example">
+                        <option label="Select your category">Select your category</option>
+                        @foreach($data as $datas)
+                        <option value="{{ $datas->category}}"> {{ $datas->category}}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -73,6 +75,32 @@
         </div>
 
         <hr>
+
+        <div class="row">
+            <div class="col" id="data">
+                <p>All-Data</p>
+            </div>
+
+            @foreach($data as $datas)
+            <div class="col">
+                {{ $datas->category }}
+            </div>
+            @endforeach
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 20px;">
+
+                @foreach($task as $tasks)
+                    <div class="col-5"  >
+                        <div class="input-group mb-3">
+                            <div class="input-group-text">
+                        </div>
+                        {{ $tasks->todo_text }}
+                    </div>
+                @endforeach
+            </div>
+        </div>
 
     </div>
 

@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [CategoryController::class, 'index']);
 Route::get('/', [CategoryController::class, 'showcategory'])->name('showcategory');
 Route::post('/category_submit', [CategoryController::class, 'categorySubmit'])->name('categorySubmit');
+Route::post('/todo_submit', [CategoryController::class, 'TodoSubmit'])->name('TodoSubmit');
+Route::get('/', [CategoryController::class, 'showTask'])->name('showTask');
