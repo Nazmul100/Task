@@ -52,7 +52,10 @@
 
                @foreach($data as $datas)
                 <div class="col-5">
-                    <span class="">x</span>
+{{--                    <span class="{{ $datas->id }} ">x</span>--}}
+                    <td>
+                        <a class="" onclick="return confirm('are u sure to delete')" href="{{ route('deleteCategory',$datas->id) }}">X</a>
+                    </td>
                     {{ $datas->category }}
                 </div>
                @endforeach

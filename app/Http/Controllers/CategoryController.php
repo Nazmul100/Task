@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\Doctor;
 use App\Models\task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,4 +48,11 @@ class CategoryController extends Controller
         $data = category::all();
         return view('welcome', compact(['task', 'data']));
     }
+
+public function deleteCategory ($id)
+{
+    $data= category::find($id);
+    $data->delete();
+    return redirect()->back();
+}
 }
