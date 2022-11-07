@@ -32,10 +32,11 @@ class CategoryController extends Controller
     public function TodoSubmit(Request $request)
     {
 
-            $task = category::where('category',$request->selected)->get();
-            $cid = $task->toArray()[0]['id'];
+//            $task = category::where('category',$request->selected)->get();
+//            dd($request->selected);
+//            $cid = $task->toArray()[0]['id'];
             $temp = task::create([
-               'category_id' => $cid,
+               'category_id' => $request->selected,
                'todo_text' => $request->title,
                'status' => $request->selected,
             ]);

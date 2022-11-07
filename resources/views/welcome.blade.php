@@ -82,7 +82,7 @@
                     <select name="selected" class="form-select" aria-label="Default select example">
                         <option label="Select your category">Select your category</option>
                         @foreach($data as $datas)
-                        <option value="{{ $datas->category}}"> {{ $datas->category}}</option>
+                        <option value="{{ $datas->id}}"> {{ $datas->category}}</option>
                         @endforeach
                     </select>
                 </div>
